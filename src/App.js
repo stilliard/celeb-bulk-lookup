@@ -84,6 +84,9 @@ function App() {
   }
 
   function formatBirthdate(birthdate) {
+    if (! birthdate) {
+      return '';
+    }
     let date = new Date(birthdate);
     return formatMonth(date.getMonth()) + ' ' + date.getDate() + ', ' + date.getFullYear();
   }
@@ -92,17 +95,26 @@ function App() {
   }
 
   function formatNetWorth(netWorth) {
+    if (! netWorth) {
+      return '';
+    }
     // format to a max of 2 decimals
     return Math.round((netWorth || 0) / 10000) / 100;
   }
 
   function formatNationality(nationality) {
+    if (! nationality) {
+      return '';
+    }
     // given a ISO 3166 Alpha-2 nationality and return country name
     nationality = nationality.toUpperCase();
     return COUNTRIES.find(_ => _['alpha-2-code'] === nationality)?.country || 'ISO: ' + nationality;
   }
 
   function formatOccupation(occupation) {
+    if (! occupation) {
+      return '';
+    }
     return occupation.join(', ');
   }
 
@@ -134,7 +146,7 @@ function App() {
       {celebErrors.length ?
         (<div className="errors-container">
           <h2 className="subtitle">Errors</h2>
-          <table class="table" width="100%">
+          <table className="table" width="100%">
             <thead>
               <tr>
                 <th>Name</th>
@@ -153,7 +165,7 @@ function App() {
       {celebResults.length ?
         (<div className="output-container">
           <h2 className="subtitle">Output</h2>
-          <table class="table" width="100%">
+          <table className="table" width="100%">
             <thead>
               <tr>
                 <th>Name</th>
