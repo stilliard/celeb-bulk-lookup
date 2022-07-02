@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# Celebs bulk lookup tool
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Let's you bulk lookup celebs using Celebrity API Ninja's data.
+
+--------------------------------------------------------------------------------
 
 ## Available Scripts
 
