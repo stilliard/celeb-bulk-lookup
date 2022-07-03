@@ -111,11 +111,36 @@ function App() {
     return COUNTRIES.find(_ => _['alpha-2-code'] === nationality)?.country || 'ISO: ' + nationality;
   }
 
-  function formatOccupation(occupation) {
-    if (! occupation) {
+  function formatOccupation(occupations) {
+    if (! occupations) {
       return '';
     }
-    return occupation.join(', ');
+    return occupations.join(', ').replace(/_/g, ' ');
+  }
+
+  function formatType(occupations) {
+    if (! occupations) {
+      return '';
+    }
+
+    const types = {
+      'Sports': ['athlete', 'sports_person', 'football_player', 'basketball_player'],
+      'Music': ['artist', 'singer', 'rapper', 'musician'],
+      'TV': ['television_presenter', 'presenter'],
+      'Chef': ['chef', 'cook', 'restaurateur'],
+      'Comedy': ['comedian', 'stand-up_comedian'],
+      'Model': ['model', 'supermodel', 'fashion_model'],
+      'Personality': ['personality', 'tv_personality'],
+      'Film': ['actor', 'director', 'film_director'],
+      'Books': ['author', 'writer'],
+    };
+
+    for (let type in types) {
+      if (types[type].some(_ => occupations.includes(_))) {
+        return type;
+      }
+    }
+    return '';
   }
 
   return (
@@ -170,9 +195,10 @@ function App() {
               <tr>
                 <th>Name</th>
                 <th>Occupation</th>
+                <th>Type</th>
                 <th>Gender</th>
                 <th>Nationality</th>
-                <th>Net Worth</th>
+                <th>Net Worth (M)</th>
                 <th>Birthdate</th>
               </tr>
             </thead>
@@ -180,9 +206,10 @@ function App() {
               {celebResults.map(celeb => (<tr key={celeb.name}>
                 <td className="titlecase">{celeb.name}</td>
                 <td className="titlecase">{formatOccupation(celeb?.occupation)}</td>
+                <td className="titlecase">{formatType(celeb?.occupation)}</td>
                 <td className="titlecase">{celeb?.gender}</td>
                 <td>{formatNationality(celeb.nationality)}</td>
-                <td>{formatNetWorth(celeb.net_worth)} M</td>
+                <td>{formatNetWorth(celeb.net_worth)}</td>
                 <td>{formatBirthdate(celeb?.birthday)}</td>
               </tr>))}
             </tbody>
