@@ -131,8 +131,8 @@ function App() {
       'Comedy': ['comedian', 'stand-up_comedian'],
       'Model': ['model', 'supermodel', 'fashion_model'],
       'Personality': ['personality', 'tv_personality'],
+      'Books': ['author', 'novelist'],
       'Film': ['actor', 'director', 'film_director'],
-      'Books': ['author', 'writer'],
     };
 
     for (let type in types) {

@@ -2,9 +2,9 @@
 /* ===== Base ===== */
 
 h2 {
-  padding: 1em;
+  padding: .6rem;
   background-color: #EEE;
-  margin-top: 2em;
+  margin-top: 1.5rem;
 }
 
 /* ===== Helpers ===== */
@@ -16,12 +16,17 @@ h2 {
 /* ===== Layout ===== */
 
 .app-container {
-  max-width: 60em;
+  max-width: 60rem;
   margin: 0 auto;
 }
 
 .errors-container h2 {
-  background-color: red;
+  background-color: hsl(348, 100%, 61%);
+  color: #FFF;
+}
+
+.output-container h2 {
+  background-color: hsl(141, 53%, 53%);
   color: #FFF;
 }
 
