@@ -960,7 +960,7 @@ module.exports = [
       "alpha-2-code": "GB"
     },
     {
-      "country": "United States",
+      "country": "USA",
       "alpha-2-code": "US"
     },
     {
